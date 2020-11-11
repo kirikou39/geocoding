@@ -5,6 +5,13 @@ class FlatsController < ApplicationController
   # GET /flats.json
   def index
     @flats = Flat.all
+
+    @markers = @flats.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   # GET /flats/1
